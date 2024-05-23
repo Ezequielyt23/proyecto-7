@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     $('#generate').on('click', function () {
         let id = $('#insert-your-id').val();
-        let quantityDiamonds = $('#diamonds').val();
+        quantitySelected = $('.portfolio-item a img.border-active').length;
 
         switch (true) {
             case id === '':
@@ -18,11 +18,11 @@ $(document).ready(function () {
                     timer: 3000
                 });
                 break;
-            case quantityDiamonds === '':
+            case quantitySelected === 0:
                 Swal.fire({
                     type: "warning",
                     title: "Atención!",
-                    html: 'Debes ingresar la cantidad de diamantes',
+                    html: 'Debes seleccionar al menos 1 item',
                     showConfirmButton: false,
                     timer: 3000
                 });
@@ -30,7 +30,7 @@ $(document).ready(function () {
             default:
                 Swal.fire({
                     title: "ID: " + id,
-                    html: "Su pedido llegará a su cuenta en: 5 minutos.<br>Cantidad de diamantes: " + quantityDiamonds + "<br>Donación #: 15019",
+                    html: "Su pedido llegará a su cuenta en: 5 minutos.<br>Cantidad de items: " + quantitySelected + "<br>Donación #: 15019",
                     type: "success",
                     footer: 'Ezequiel',
                     showConfirmButton: false
